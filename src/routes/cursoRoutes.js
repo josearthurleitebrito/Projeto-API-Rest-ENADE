@@ -1,31 +1,22 @@
 const express = require('express');
 const router = express.Router();
-const Curso = require('../models/Curso'); // Importamos o modelo que criamos na Etapa 1
+const Curso = require('../models/Curso'); 
 
-// ==========================================
 // 1. CREATE (Criar) - Método POST
-// ==========================================
 router.post('/', async (req, res) => {
     try {
-        // Pega os dados que vieram no corpo da requisição (JSON)
         const novoCurso = new Curso(req.body); 
-        // Salva no banco de dados
         const cursoSalvo = await novoCurso.save(); 
-        // Retorna status 201 (Created) e os dados salvos
         res.status(201).json(cursoSalvo); 
     } catch (err) {
-        // Retorna status 400 (Bad Request) se faltar algum campo obrigatório
         res.status(400).json({ erro: 'Erro ao criar curso', detalhes: err.message });
     }
 });
 
-// ==========================================
 // 2. READ (Ler/Listar) - Método GET
-// ==========================================
-// Listar todos os cursos
 router.get('/', async (req, res) => {
     try {
-        const cursos = await Curso.find(); // Busca todos no banco
+        const cursos = await Curso.find(); 
         res.status(200).json(cursos);
     } catch (err) {
     res.status(500).json({ erro: 'Erro ao buscar cursos', detalhes: err.message });
@@ -45,13 +36,9 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-// ==========================================
 // 3. UPDATE (Atualizar) - Método PUT
-// ==========================================
 router.put('/:id', async (req, res) => {
     try {
-        // Encontra pelo ID e atualiza com os dados do req.body. 
-        // O { new: true } faz o Mongoose retornar o documento já atualizado.
         const cursoAtualizado = await Curso.findByIdAndUpdate(req.params.id, req.body, { new: true });
         
         if (!cursoAtualizado) {
@@ -63,9 +50,7 @@ router.put('/:id', async (req, res) => {
     }
 });
 
-// ==========================================
 // 4. DELETE (Deletar) - Método DELETE
-// ==========================================
 router.delete('/:id', async (req, res) => {
     try {
         const cursoDeletado = await Curso.findByIdAndDelete(req.params.id);

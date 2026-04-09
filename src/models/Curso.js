@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
 
-// Definindo a estrutura (Schema) do Curso
 const cursoSchema = new mongoose.Schema({
     nome_curso: {
         type: String,
-        required: true // required significa que é obrigatório preencher
+        required: true
     },
     area_diretriz: {
         type: String,
@@ -23,8 +22,7 @@ const cursoSchema = new mongoose.Schema({
         required: true
     }
 }, {
-    timestamps: true // Cria automaticamente os campos createdAt e updatedAt
+    timestamps: true 
 });
 
-// Exportando o modelo para usarmos nas rotas
 module.exports = mongoose.model('Curso', cursoSchema);

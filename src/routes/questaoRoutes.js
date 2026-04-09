@@ -16,7 +16,6 @@ router.post('/', async (req, res) => {
 // 2. READ (GET) - Listar todas
 router.get('/', async (req, res) => {
     try {
-        // Trazendo os dados do curso associado
         const questoes = await Questao.find().populate('id_curso', 'nome_curso');
         res.status(200).json(questoes);
     } catch (err) {

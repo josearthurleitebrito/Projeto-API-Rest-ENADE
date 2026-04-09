@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const questaoSchema = new mongoose.Schema({
-    // Relacionamento: a qual curso/diretriz essa questão pertence?
+    // Relacionamento: a qual curso essa questão pertence
     id_curso: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Curso',

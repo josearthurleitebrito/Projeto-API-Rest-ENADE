@@ -10,7 +10,7 @@ const estudanteSchema = new mongoose.Schema({
         required: true,
         unique: true // A matrícula não pode se repetir
     },
-    // Relacionamento: salvamos o ID do Curso ao qual o aluno pertence
+    // Relacionamento: salvo o ID do Curso ao qual o aluno pertence
     id_curso: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Curso',

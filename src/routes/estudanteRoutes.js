@@ -16,7 +16,6 @@ router.post('/', async (req, res) => {
 // 2. READ (GET) - Listar todos
 router.get('/', async (req, res) => {
     try {
-        // O .populate('id_curso') vai trazer os dados do curso junto com o estudante!
         const estudantes = await Estudante.find().populate('id_curso', 'nome_curso area_diretriz');
         res.status(200).json(estudantes);
     } catch (err) {
