@@ -27,7 +27,7 @@ Siga os passos abaixo para rodar a aplicação em sua máquina:
 
 **1. Clone este repositório:**
 \`\`\`bash
-git clone https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
+git clone https://github.com/josearthurleitebrito/Projeto-API-Rest-ENADE.git
 \`\`\`
 
 **2. Acesse a pasta do projeto:**
